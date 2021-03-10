@@ -6,31 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title>What's the Weather Like?</title>
 </head>
 <body>
-    <header>
-        <h1>Weather Dashboard</h1>
+    <header class="col-12 bg-dark text-light">
+        <h1 class="text-center">Weather Dashboard</h1>
     </header>
-<div>
-    <!--search for cities-->
-</div>
-<div>
-    <!--store and display searched cities-->
-</div>
-<div>
+    <div class="row min-vh-100 no-gutters">
+        <div class="col-3 bg-light d-flex flex-column p-4 p-lg-3">
+            <!--search for cities-->
+            <h4>Search for a City:</h4>
+            <div class="row align-items-start">
+            <input id="cities" type="search" name="city" value="" class="col-8">
+                    <button id="search" type="submit" class="searchBtn col-3 text-center">
+                        <i class="fas fa-search"></i>
+                    </button>
+            </div>
+        </div>
+        <div class="">
+            <!--store and display searched cities-->
+            <span class="oi oi-task d-inline d-lg-none"></span>
+        </div>
+    </div>
+
+    <div>
     <!--display city of choice's weather-->
-</div>
-<div>
+    </div>
+
+    <div>
     <!--display predicted forcast-->
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="assets/js/script.js"></script>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
