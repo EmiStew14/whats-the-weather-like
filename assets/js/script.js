@@ -58,10 +58,6 @@ function getWeather() {
         return response.json();
     })
     .then(function(data){
-        // console.log(data);
-        // var dayindex = data.daily.length -1;
-        // var counter = 0;
-        // var value = data.daily[dayindex].dt
         newDate1 = moment.unix(data.daily[0].dt).format("MM/DD/YYYY");
         console.log(newDate1);
         newDate2 = moment.unix(data.daily[1].dt).format("MM/DD/YYYY");
@@ -70,6 +66,21 @@ function getWeather() {
         newDate4 = moment.unix(data.daily[3].dt).format("MM/DD/YYYY");
         newDate5 = moment.unix(data.daily[4].dt).format("MM/DD/YYYY");
         
+        $(first).append("#1");
+        $(first).html(newDate1);
+        console.log(first);
+        
+        $(second).append("#2");
+        $(second).html(newDate2);
+
+        $(third).append("#3");
+        $(third).html(newDate3);
+
+        $(fourth).append("#4");
+        $(fourth).html(newDate4);
+
+        $(fifth).append("#5");
+        $(fifth).html(newDate5);
     })
 
     // built in error catching
