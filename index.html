@@ -16,35 +16,74 @@
     <header class="col-12 bg-dark text-light">
         <h1 class="text-center">Weather Dashboard</h1>
     </header>
-    <div class="row min-vh-100 no-gutters">
-        <div class="col-3 bg-light d-flex flex-column p-4 p-lg-3">
+    <div class="container-fluid">
+    <div class="row h-auto no-gutters">
+        <nav class="col-md-3 d-none bg-light d-md-block flex-column p-4 p-lg-3">
             <!--search for cities-->
             <h4>Search for a City:</h4>
             <div class="row align-items-start">
-            <input id="cities" type="search" name="city" value="" class="col-8">
+                <input id="cities" type="search" name="city" value="" class="col-8">
                     <button id="search" type="submit" class="searchBtn col-3 text-center">
                         <i class="fas fa-search"></i>
                     </button>
             </div>
-        </div>
-        <div class="">
             <!--store and display searched cities-->
-            <span class="oi oi-task d-inline d-lg-none"></span>
+            <div class="card col bg-light">
+                <ul class="list-group list-group-flush bg-light">
+                </ul>
+            </div>
+        </nav>
+
+    <div class="card row col-8 align-items-center mx-auto h-auto">
+        <div id="cityWeather" class="card-body float-right col-md-4">
+            <!--display city of choice's weather-->
+            <h3 id="name"></h3>
+        </div>
+        <div>
+            <h4 id="temperature">Temperature:</h4>
+        </div>
+        <div>
+            <h4 id="humidity">Humidity:</h4>
+        </div>
+        <div>
+            <h4 id="wind-speed">Wind Speed:</h4>
+        </div>
+        <div id="icon">
         </div>
     </div>
-
-    <div>
-    <!--display city of choice's weather-->
     </div>
 
-    <div>
-    <!--display predicted forcast-->
+    <div class="container">
+        <div class="row card-deck justify-content-end">
+            <div id="days-1" class="card mb-2 justify-content-between bg-primary text-light col-1">
+            <!--display predicted forcast-->
+            <span></span>
+            </div>
+            <div id="days-2" class="card mb-2 justify-content-between bg-primary text-light col-1">
+                <!--display predicted forcast-->
+                <span></span>
+            </div>
+            <div id="days-3" class="card mb-2 justify-content-between bg-primary text-light col-1">
+                <!--display predicted forcast-->
+                <span></span>
+            </div>
+            <div id="days-4" class="card mb-2 justify-content-between bg-primary text-light col-1">
+                <!--display predicted forcast-->
+                <span></span>
+            </div>
+            <div id="days-5" class="card mb-2 justify-content-between bg-primary text-light col-1">
+                <!--display predicted forcast-->
+                <span>sxdrcftvgbhnjmkxdcfvgbhjndxcfvgbhnjx</span>
+            </div>
+        </div>
     </div>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
