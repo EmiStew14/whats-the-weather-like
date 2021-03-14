@@ -14,13 +14,17 @@ var cityBlock= function(cityText) {
       .addClass("m-1")
       .text(cityText);
   
-      Li.on("click",function(){ 
-        getWeather(($(this).siblings(cityP).text()));
+      Li.on("click", function () {
+        console.log(this)
+
+        console.log(($(this).children().text()))
+        getWeather(($(this).children().text()));
         //   $(Li).each(function(){
         //       var btnName = parse($(().siblings(cityP).text()));
         //        console.log(btnName);
         //    })
     })
+
     // append p element to parent li
     Li.append(cityP);
   
