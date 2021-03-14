@@ -1,21 +1,16 @@
 // universal variables
 var areaSearch= document.querySelector("#cities");
-var city={};
+var city=[];
 var first = document.querySelector("#days-1");
 var second = document.querySelector("#days-2");
 var third = document.querySelector("#days-3");
 var fourth = document.querySelector("#days-4");
 var fifth = document.querySelector("#days-5");
-var latitude= 0;
-var longitude= 0;
-var temp = 0;
-var humid = 0;
-var windSpeed =0;
-var UV = 0;
-var cityBlock= function(cityText, cityList) {
+
+var cityBlock= function(cityText) {
     // create elements that make up a list item
-    var Li = $("<li>").addClass("list-group-item");
-    var cityP = $("<p>")
+    var Li = $("<button>").addClass("list-group-item card col bg-white");
+    var cityP = $("<span>")
       .addClass("m-1")
       .text(cityText);
   
@@ -23,11 +18,18 @@ var cityBlock= function(cityText, cityList) {
     Li.append(cityP);
   
     // append to ul list on the page
-    $("#list" + cityList).append(Li);
+    $("#list").append(Li);
   };
 
+  function store() {
+      var cityN = document.querySelector("#cities").value;
+    city.push(cityN);
+    // localStorage.setItem("location",location);
+    localStorage.setItem("location", JSON.stringify(city));
+}
+
   function loadIt() {
-      city= localStorage.getItem("location")
+      city= JSON.parse(localStorage.getItem("location", city));
     var values = [],
        keys = Object.keys(localStorage),
         i = keys.length;
@@ -39,21 +41,21 @@ var cityBlock= function(cityText, cityList) {
     return values;
 };
 
-function getWeather() {
+function getWeather(location) {
 
     fetch(
         "http://api.openweathermap.org/data/2.5/weather?q="
-        + areaSearch.value + "&units=imperial&appid=1a0eb2135e79b5e8e040af27fa108f81"
+        + location + "&units=imperial&appid=1a0eb2135e79b5e8e040af27fa108f81"
     )
     .then(function(weatherResponse){
         console.log(weatherResponse);
         return weatherResponse.json();
     })
     .then(data => {areaSearch=data
-    var city = document.createElement("span");
-    var temp = document.createElement("span");
-    var humid = document.createElement("span");
-    var windSpeed = document.createElement("span");
+        var city = document.querySelector("#id");
+        var temp = document.querySelector("#tmp");
+        var humid = document.querySelector("#hmd");
+        var windSpeed = document.querySelector("#windy");
     // var date = moment.unix(data.coord["dt"].format("MM/DD/YYYY"));
     // var seeWeather = document.createElement("img");
     var latitude = data.coord["lat"];
@@ -61,18 +63,18 @@ function getWeather() {
     var longitude = data.coord["lon"];
     console.log(longitude);
 
-    document.querySelector('#name').appendChild(city);
+    // document.querySelector('#name').appendChild(city);
     city.innerHTML=data.name;
 
     // document.querySelector("#date").innerHTML(date);
 
-    document.querySelector('#temperature').appendChild(temp);
+    // document.querySelector('#temperature').appendChild(temp);
     temp.innerHTML="Temperature:"+ data.main["temp"] + "℉";
 
-    document.querySelector('#humidity').appendChild(humid);
+    // document.querySelector('#humidity').appendChild(humid);
     humid.innerHTML="Humidity:"+ data.main["humidity"] + "%";
 
-    document.querySelector('#wind-speed').appendChild(windSpeed);
+    // document.querySelector('#wind-speed').appendChild(windSpeed);
     windSpeed.innerHTML="Wind Speed:"+ data.wind["speed"] + "MPH";
 
     // seeWeather.setAttribute('src',data.weather[0]["icon"]);
@@ -95,22 +97,22 @@ function getWeather() {
         newDate5 = moment.unix(data.daily[4].dt).format("MM/DD/YYYY");
         console.log(data);
 
-        var temp = document.querySelector("#t1");
+        var temp1 = document.querySelector("#t1");
         var temp2= document.querySelector("#t2");
         var temp3= document.querySelector("#t3");
         var temp4= document.querySelector("#t4");
         var temp5= document.querySelector("#t5");
-        var degrees = data.daily[0].temp.max;
+        var degrees1 = data.daily[0].temp.max;
         var degrees2 = data.daily[1].temp.max;
         var degrees3 = data.daily[2].temp.max;
         var degrees4 = data.daily[3].temp.max;
         var degrees5 = data.daily[4].temp.max;
-        var humid = document.querySelector("#d1");
+        var humid1 = document.querySelector("#d1");
         var humid2 = document.querySelector("#d2");
         var humid3 = document.querySelector("#d3");
         var humid4 = document.querySelector("#d4");
         var humid5 = document.querySelector("#d5");
-        var cond = data.daily[0].humidity;
+        var cond1 = data.daily[0].humidity;
         var cond2 = data.daily[1].humidity;
         var cond3 = data.daily[2].humidity;
         var cond4 = data.daily[3].humidity;
@@ -120,12 +122,12 @@ function getWeather() {
         $(first).append("#1");
         $(first).html(newDate1);
 
-        $(first).append(temp);
-        $(temp).html("<p class='font-weight-bold'>Temp:"+ degrees + "℉<p>");
-        console.log(degrees);
-        $(first).append(humid);
-        $(humid).html("<p class='font-weight-bold'>Humidity:"+ cond + "%</p>");
-        console.log(cond);
+        $(first).append(temp1);
+        $(temp1).html("<p class='font-weight-bold'>Temp:"+ degrees1 + "℉<p>");
+        console.log(degrees1);
+        $(first).append(humid1);
+        $(humid1).html("<p class='font-weight-bold'>Humidity:"+ cond1 + "%</p>");
+        console.log(cond1);
 
         $(second).append("#2");
         $(second).html(newDate2);
@@ -173,14 +175,17 @@ function getWeather() {
         console.log('error');
     })
     // var areaSearch = weatherData.query
+    areaSearch.value="";
 };
 
 $("#search").click(function() {
-    cityBlock;
-    loadIt();
-    getWeather();
     const location = $(this).siblings("#cities").val();
+    cityBlock(location);
     console.log(location);
-    localStorage.setItem("location",location);
+    store();
+    loadIt();
+    getWeather(location);
 })
-$("#search").click(function(){});
+$("#search").click(function(){
+
+})
