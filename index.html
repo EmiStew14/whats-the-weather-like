@@ -12,7 +12,7 @@
 
     <title>What's the Weather Like?</title>
 </head>
-<body>
+<body class="container-fluid flex-column">
     <header class="col-12 bg-dark text-light">
         <h1 class="text-center">Weather Dashboard</h1>
     </header>
@@ -37,7 +37,9 @@
     <div class="card row col-8 align-items-center mx-auto h-auto">
         <div id="cityWeather" class="card-body float-right col-md-4">
             <!--display city of choice's weather-->
-            <h3 id="name"></h3>
+            <h3 id="name"></h3><span id="date"></span>
+            <div id="icon">
+            </div>
         </div>
         <div>
             <h4 id="temperature">Temperature:</h4>
@@ -48,8 +50,6 @@
         <div>
             <h4 id="wind-speed">Wind Speed:</h4>
         </div>
-        <div id="icon">
-        </div>
     </div>
     </div>
 
@@ -58,22 +58,34 @@
             <div id="days-1" class="card mb-2 justify-content-between bg-primary text-light col-2">
             <!--display predicted forcast-->
             <span id="1"></span>
+
+            <span id="t1"></span>
+
+            <span id="d1"></span>
+           
             </div>
             <div id="days-2" class="card mb-2 justify-content-between bg-primary text-light col-2">
                 <!--display predicted forcast-->
                 <span id="2"></span>
+                <span id="t2"></span>
+               
             </div>
             <div id="days-3" class="card mb-2 justify-content-between bg-primary text-light col-2">
                 <!--display predicted forcast-->
                 <span id="3"></span>
+                <span id="t3"></span>
+               
             </div>
             <div id="days-4" class="card mb-2 justify-content-between bg-primary text-light col-2">
                 <!--display predicted forcast-->
                 <span id="4"></span>
+                <span id="t4"></span>
+               
             </div>
             <div id="days-5" class="card mb-2 justify-content-between bg-primary text-light col-2">
                 <!--display predicted forcast-->
                 <span id="5"></span>
+                <span id="t5"></span>
             </div>
         </div>
     </div>
