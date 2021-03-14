@@ -1,5 +1,6 @@
 // universal variables
 var areaSearch= document.querySelector("#cities");
+var city={};
 var first = document.querySelector("#days-1");
 var second = document.querySelector("#days-2");
 var third = document.querySelector("#days-3");
@@ -11,6 +12,32 @@ var temp = 0;
 var humid = 0;
 var windSpeed =0;
 var UV = 0;
+var cityBlock= function(cityText, cityList) {
+    // create elements that make up a list item
+    var Li = $("<li>").addClass("list-group-item");
+    var cityP = $("<p>")
+      .addClass("m-1")
+      .text(cityText);
+  
+    // append p element to parent li
+    Li.append(cityP);
+  
+    // append to ul list on the page
+    $("#list" + cityList).append(Li);
+  };
+
+  function loadIt() {
+      city= localStorage.getItem("location")
+    var values = [],
+       keys = Object.keys(localStorage),
+        i = keys.length;
+   
+    while ( i-- ) {
+       values.push( localStorage.getItem(keys[i],("#cities").val) );
+       }
+   $("#city-block").append(values);
+    return values;
+};
 
 function getWeather() {
 
@@ -40,13 +67,13 @@ function getWeather() {
     // document.querySelector("#date").innerHTML(date);
 
     document.querySelector('#temperature').appendChild(temp);
-    temp.innerHTML=data.main["temp"] + "℉";
+    temp.innerHTML="Temperature:"+ data.main["temp"] + "℉";
 
     document.querySelector('#humidity').appendChild(humid);
-    humid.innerHTML=data.main["humidity"] + "%";
+    humid.innerHTML="Humidity:"+ data.main["humidity"] + "%";
 
     document.querySelector('#wind-speed').appendChild(windSpeed);
-    windSpeed.innerHTML=data.wind["speed"] + "MPH";
+    windSpeed.innerHTML="Wind Speed:"+ data.wind["speed"] + "MPH";
 
     // seeWeather.setAttribute('src',data.weather[0]["icon"]);
     // document.querySelector('#icon').appendChild(seeWeather);
@@ -94,7 +121,7 @@ function getWeather() {
         $(first).html(newDate1);
 
         $(first).append(temp);
-        $(temp).html("<p class='font-weight-bold'>Temperature:"+ degrees + "℉<p>");
+        $(temp).html("<p class='font-weight-bold'>Temp:"+ degrees + "℉<p>");
         console.log(degrees);
         $(first).append(humid);
         $(humid).html("<p class='font-weight-bold'>Humidity:"+ cond + "%</p>");
@@ -104,7 +131,7 @@ function getWeather() {
         $(second).html(newDate2);
 
         $(second).append(temp2);
-        $(temp).html("<p class='font-weight-bold'>Temperature:"+ degrees2 + "℉<p>");
+        $(temp2).html("<p class='font-weight-bold'>Temp:"+ degrees2 + "℉<p>");
         console.log(degrees2);
         $(second).append(humid2);
         $(humid2).html("<p class='font-weight-bold'>Humidity:"+ cond2 + "%</p>");
@@ -114,7 +141,7 @@ function getWeather() {
         $(third).html(newDate3);
 
         $(third).append(temp3);
-        $(temp3).html("<p class='font-weight-bold'>Temperature:"+ degrees3 + "℉<p>");
+        $(temp3).html("<p class='font-weight-bold'>Temp:"+ degrees3 + "℉<p>");
         console.log(degrees3);
         $(third).append(humid3);
         $(humid3).html("<p class='font-weight-bold'>Humidity:"+ cond3 + "%</p>");
@@ -124,7 +151,7 @@ function getWeather() {
         $(fourth).html(newDate4);
 
         $(fourth).append(temp4);
-        $(temp4).html("<p class='font-weight-bold'>Temperature:"+ degrees4 + "℉<p>");
+        $(temp4).html("<p class='font-weight-bold'>Temp:"+ degrees4 + "℉<p>");
         console.log(degrees4);
         $(fourth).append(humid4);
         $(humid4).html("<p class='font-weight-bold'>Humidity:"+ cond4 + "%</p>");
@@ -134,7 +161,7 @@ function getWeather() {
         $(fifth).html(newDate5);
 
         $(fifth).append(temp5);
-        $(temp5).html("<p class='font-weight-bold'>Temperature:"+ degrees5 + "℉<p>");
+        $(temp5).html("<p class='font-weight-bold'>Temp:"+ degrees5 + "℉<p>");
         console.log(degrees5);
         $(fifth).append(humid5);
         $(humid5).html("<p class='font-weight-bold'>Humidity:"+ cond5 + "%</p>");
@@ -147,7 +174,10 @@ function getWeather() {
     })
     // var areaSearch = weatherData.query
 };
+
 $("#search").click(function() {
+    cityBlock;
+    loadIt();
     getWeather();
     const location = $(this).siblings("#cities").val();
     console.log(location);

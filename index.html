@@ -28,39 +28,36 @@
                     </button>
             </div>
             <!--store and display searched cities-->
-            <div class="card col bg-light">
-                <ul class="list-group list-group-flush bg-light">
-                </ul>
+            <div id="city-block" class="card col bg-light">
+                <ul id="list"></ul>
             </div>
         </nav>
 
     <div class="card row col-8 align-items-center mx-auto h-auto">
-        <div id="cityWeather" class="card-body float-right col-md-4">
+        <div id="cityWeather" class="card-body text-justify col-md-4">
             <!--display city of choice's weather-->
             <h3 id="name"></h3><span id="date"></span>
             <div id="icon">
             </div>
         </div>
-        <div>
-            <h4 id="temperature">Temperature:</h4>
+        <div class="text-justify">
+            <h4 id="temperature"></h4>
         </div>
         <div>
-            <h4 id="humidity">Humidity:</h4>
+            <h4 id="humidity"></h4>
         </div>
         <div>
-            <h4 id="wind-speed">Wind Speed:</h4>
+            <h4 id="wind-speed"></h4>
         </div>
     </div>
     </div>
 
     <div class="container">
-        <div class="row card-deck justify-content-end">
+        <div class="row card-deck text-justify justify-content-end">
             <div id="days-1" class="card mb-2 justify-content-between bg-primary text-light col-2">
             <!--display predicted forcast-->
             <span id="1"></span>
-
             <span id="t1"></span>
-
             <span id="d1"></span>
            
             </div>
@@ -68,24 +65,28 @@
                 <!--display predicted forcast-->
                 <span id="2"></span>
                 <span id="t2"></span>
+                <span id="d2"></span>
                
             </div>
             <div id="days-3" class="card mb-2 justify-content-between bg-primary text-light col-2">
                 <!--display predicted forcast-->
                 <span id="3"></span>
                 <span id="t3"></span>
+                <span id="d3"></span>
                
             </div>
             <div id="days-4" class="card mb-2 justify-content-between bg-primary text-light col-2">
                 <!--display predicted forcast-->
                 <span id="4"></span>
                 <span id="t4"></span>
+                <span id="d4"></span>
                
             </div>
             <div id="days-5" class="card mb-2 justify-content-between bg-primary text-light col-2">
                 <!--display predicted forcast-->
                 <span id="5"></span>
                 <span id="t5"></span>
+                <span id="d5"></span>
             </div>
         </div>
     </div>
