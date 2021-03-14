@@ -14,12 +14,24 @@ var cityBlock= function(cityText) {
       .addClass("m-1")
       .text(cityText);
   
+      Li.on("click",function(){ 
+        getWeather(($(this).siblings(cityP).text()));
+        //   $(Li).each(function(){
+        //       var btnName = parse($(().siblings(cityP).text()));
+        //        console.log(btnName);
+        //    })
+    })
     // append p element to parent li
     Li.append(cityP);
   
     // append to ul list on the page
     $("#list").append(Li);
+
   };
+
+  function pastSearch(){
+    city= JSON.parse(localStorage.getItem(city));
+  }
 
   function store() {
       var cityN = document.querySelector("#cities").value;
@@ -29,7 +41,6 @@ var cityBlock= function(cityText) {
 }
 
   function loadIt() {
-      city= JSON.parse(localStorage.getItem("location", city));
     var values = [],
        keys = Object.keys(localStorage),
         i = keys.length;
@@ -124,50 +135,45 @@ function getWeather(location) {
 
         $(first).append(temp1);
         $(temp1).html("<p class='font-weight-bold'>Temp:"+ degrees1 + "℉<p>");
-        console.log(degrees1);
         $(first).append(humid1);
         $(humid1).html("<p class='font-weight-bold'>Humidity:"+ cond1 + "%</p>");
-        console.log(cond1);
 
         $(second).append("#2");
         $(second).html(newDate2);
 
         $(second).append(temp2);
         $(temp2).html("<p class='font-weight-bold'>Temp:"+ degrees2 + "℉<p>");
-        console.log(degrees2);
+
         $(second).append(humid2);
         $(humid2).html("<p class='font-weight-bold'>Humidity:"+ cond2 + "%</p>");
-        console.log(cond2);
 
         $(third).append("#3");
         $(third).html(newDate3);
 
         $(third).append(temp3);
         $(temp3).html("<p class='font-weight-bold'>Temp:"+ degrees3 + "℉<p>");
-        console.log(degrees3);
+
         $(third).append(humid3);
         $(humid3).html("<p class='font-weight-bold'>Humidity:"+ cond3 + "%</p>");
-        console.log(cond3);
+
 
         $(fourth).append("#4");
         $(fourth).html(newDate4);
 
         $(fourth).append(temp4);
         $(temp4).html("<p class='font-weight-bold'>Temp:"+ degrees4 + "℉<p>");
-        console.log(degrees4);
+
         $(fourth).append(humid4);
         $(humid4).html("<p class='font-weight-bold'>Humidity:"+ cond4 + "%</p>");
-        console.log(cond4);
 
         $(fifth).append("#5");
         $(fifth).html(newDate5);
 
         $(fifth).append(temp5);
         $(temp5).html("<p class='font-weight-bold'>Temp:"+ degrees5 + "℉<p>");
-        console.log(degrees5);
+
         $(fifth).append(humid5);
         $(humid5).html("<p class='font-weight-bold'>Humidity:"+ cond5 + "%</p>");
-        console.log(cond5);
     })
 
     // built in error catching
@@ -175,8 +181,8 @@ function getWeather(location) {
         console.log('error');
     })
     // var areaSearch = weatherData.query
-    areaSearch.value="";
 };
+
 
 $("#search").click(function() {
     const location = $(this).siblings("#cities").val();
@@ -185,7 +191,5 @@ $("#search").click(function() {
     store();
     loadIt();
     getWeather(location);
-})
-$("#search").click(function(){
-
+    // pastSearch();
 })
