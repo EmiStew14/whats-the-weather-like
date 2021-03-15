@@ -35,18 +35,21 @@ var cityBlock= function(cityText) {
 //   city= JSON.parse(localStorage.getItem(city));
 
   function store() {
-      var cityN = document.querySelector("#cities").value;
-    city.push(cityN);
-    // localStorage.setItem("location",location);
-    localStorage.setItem("location", JSON.stringify(city));
+    var cityN = document.querySelector("#cities").value;
+    console.log('cityN: ', cityN);
+   city.push(cityN);
+   console.log('city: ', city);
+   // localStorage.setItem("location",location);
+   localStorage.setItem("location", JSON.stringify(city));
+   console.log('localStorage: ', localStorage);
 }
 
   function loadIt() {
-    var value = localStorage.getItem("location"); 
+    var value = JSON.parse(localStorage.getItem("location")); 
     console.log(value);   
-    let i = 0; i < value.length; i++;
-        cityBlock(value[i]);
-        $("#city-block").append(cityBlock(value[i]));
+    //  let i = 0; i < value.length; i++;
+    //      cityBlock(value[i]);
+    //      $("#city-block").append(cityBlock(value[i]));
     
 };
 
@@ -205,7 +208,7 @@ function getWeather(location) {
 
 
 $("#search").click(function() {
-    const location = $(this).siblings("#cities").val();
+    const location = $("#cities").val();
     cityBlock(location);
     console.log(location);
     store();
