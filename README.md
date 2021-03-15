@@ -1,7 +1,7 @@
 # whats-the-weather-like
 
 ## Purpose
-A website that offers info from different weather API servers to display 5 day forecast weather updates, and the current weather temperature, humidity and windspeed.
+A website that offers info from different weather API servers to display 5 day forecast weather updates, and the current weather temperature, humidity and windspeed. Also with the feature of clicking previous searches and calling back to their weather outputs
 
 ## Built With
 * HTML
