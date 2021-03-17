@@ -84,7 +84,7 @@ function getWeather(location) {
     // document.querySelector('#wind-speed').appendChild(windSpeed);
     windSpeed.innerHTML="Wind Speed:"+ data.wind["speed"] + "MPH";
 
-      seeWeather.setAttribute('src',"http://openweathermap.org/img/wn/"+ icon +".png");
+      seeWeather.setAttribute('src',"https://openweathermap.org/img/wn/"+ icon +".png");
       document.querySelector('#icon').appendChild(seeWeather);
 
     return fetch(
