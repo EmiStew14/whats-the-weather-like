@@ -50,7 +50,7 @@ var cityBlock= function(cityText) {
 function getWeather(location) {
 
     fetch(
-        "http://api.openweathermap.org/data/2.5/weather?q="
+        "https://api.openweathermap.org/data/2.5/weather?q="
         + location + "&units=imperial&appid=1a0eb2135e79b5e8e040af27fa108f81"
     )
     .then(function(weatherResponse){
@@ -145,7 +145,7 @@ function getWeather(location) {
         
         $(first).append("#1");
         $(first).html(newDate1);
-        $(seeWeather1).attr("src", "http://openweathermap.org/img/wn/"+ icon1 +".png");
+        $(seeWeather1).attr("src", "https://openweathermap.org/img/wn/"+ icon1 +".png");
         $("#icon1").append(seeWeather1);
 
         $(first).append(temp1);
@@ -155,7 +155,7 @@ function getWeather(location) {
 
         $(second).append("#2");
         $(second).html(newDate2);
-        $(seeWeather2).attr("src", "http://openweathermap.org/img/wn/"+ icon2 +".png");
+        $(seeWeather2).attr("src", "https://openweathermap.org/img/wn/"+ icon2 +".png");
         $("#icon2").append(seeWeather2);
 
         $(second).append(temp2);
@@ -165,7 +165,7 @@ function getWeather(location) {
 
         $(third).append("#3");
         $(third).html(newDate3);
-        $(seeWeather3).attr("src", "http://openweathermap.org/img/wn/"+ icon3 +".png");
+        $(seeWeather3).attr("src", "https://openweathermap.org/img/wn/"+ icon3 +".png");
         $("#icon3").append(seeWeather3);
 
         $(third).append(temp3);
@@ -176,7 +176,7 @@ function getWeather(location) {
 
         $(fourth).append("#4");
         $(fourth).html(newDate4);
-        $(seeWeather4).attr("src", "http://openweathermap.org/img/wn/"+ icon4 +".png");
+        $(seeWeather4).attr("src", "https://openweathermap.org/img/wn/"+ icon4 +".png");
         $("#icon4").append(seeWeather4);
 
         $(fourth).append(temp4);
@@ -186,7 +186,7 @@ function getWeather(location) {
 
         $(fifth).append("#5");
         $(fifth).html(newDate5);
-        $(seeWeather5).attr("src", "http://openweathermap.org/img/wn/"+ icon5 +".png");
+        $(seeWeather5).attr("src", "https://openweathermap.org/img/wn/"+ icon5 +".png");
         $("#icon5").append(seeWeather5);
 
         $(fifth).append(temp5);
